@@ -1,0 +1,9 @@
+{
+  "name": "sanity-py-js-capture",
+  "private": true,
+  "type": "module",
+  "description": "Records the exact requests @sanity/client sends, for the Python request-shape tests",
+  "dependencies": {
+    "@sanity/client": "8.16.0"
+  }
+}

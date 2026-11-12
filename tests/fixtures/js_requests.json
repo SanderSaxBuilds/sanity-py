@@ -1,0 +1,1374 @@
+{
+  "clientVersion": "8.16.0",
+  "generatedBy": "tools/js-capture/capture.mjs",
+  "cases": {
+    "query_simple": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_cdn": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_params_scalar": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%24type+%26%26+rating+%3E+%24min+%26%26+featured+%3D%3D+%24flag%5D%5B0...%24limit%5D&%24type=%22post%22&%24min=3.5&%24flag=true&%24limit=10&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_params_complex": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_id+in+%24ids+%26%26+category+%3D%3D+%24cat+%26%26+%24none+%3D%3D+null%5D&%24ids=%5B%22a%22%2C%22b.c%22%2C%22drafts.d%22%5D&%24cat=%7B%22_ref%22%3A%22cat-1%22%2C%22nested%22%3A%7B%22deep%22%3A%5B1%2C2.25%2C-3%5D%7D%7D&%24none=null&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_params_unicode": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5Btitle+match+%24q+%7C%7C+author+%3D%3D+%24name%5D&%24q=%22na%C3%AFve+caf%C3%A9+%7E*%27%28%29%21+%26+%3D+%2B+%2F+%3F+%23%22&%24name=%22S%C3%B8ren+%C3%86r%C3%B8+%E6%97%A5%E6%9C%AC+%F0%9F%98%80%22&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_params_numbers": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5Ba+%3D%3D+%24a+%26%26+b+%3D%3D+%24b+%26%26+c+%3D%3D+%24c+%26%26+d+%3D%3D+%24d+%26%26+e+%3D%3D+%24e%5D&%24a=1&%24b=-0.5&%24c=1e%2B21&%24d=123456789012&%24e=0.1&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_params_undefined_dropped": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%24type%5D&%24type=%22post%22&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_tag": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&tag=homepage",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_tag_prefix": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&tag=website.homepage",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_tag_prefix_only": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&tag=website",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_perspective_published": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&perspective=published",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_perspective_drafts_cdn": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&perspective=drafts",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_perspective_raw": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&perspective=raw",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_perspective_stack": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&perspective=rSummer%2Cdrafts",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_perspective_per_call": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&perspective=drafts",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_token": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_filter_response_false": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_return_query_false_explicit": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_result_source_map": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&resultSourceMap=withKeyArraySelector",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_result_source_map_true": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&resultSourceMap=true",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_long_post": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?returnQuery=false",
+          "headers": {
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"query\":\"*[_type == \\\"post\\\" && title in $titles]{title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, _id}\",\"params\":{\"titles\":[\"a\",\"b\"]}}"
+          }
+        }
+      ]
+    },
+    "query_long_post_tag": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?returnQuery=false&perspective=published&tag=big",
+          "headers": {
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"query\":\"*[_type == \\\"post\\\" && title in $titles]{title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, _id}\",\"params\":{\"titles\":[\"x\"]}}"
+          }
+        }
+      ]
+    },
+    "query_api_version_v_prefix": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2021-06-07/data/query/production?query=*&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_api_version_x": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/vX/data/query/production?query=*&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_custom_headers": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0",
+            "x-custom": "yes"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_cdn_no_stale": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/query/production?query=*&cacheMode=noStale&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_last_live_event_id": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&lastLiveEventId=live-1",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_custom_api_host": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.example.test/v2025-02-19/data/query/production?query=*&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_no_project_hostname": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0",
+            "x-sanity-project-id": "abc123"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "get_document": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "get_document_cdn": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/doc/production/doc-1",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "get_document_tag": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/drafts.doc-1?tag=doc.read",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "get_document_all_versions": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1?includeAllVersions=true",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "get_document_release": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/versions.rSummer.doc-1",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "get_documents": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1,doc-2,drafts.doc-3",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "get_documents_tag": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/a,b?tag=many",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "documents_exists": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1,doc%202?excludeContent=true",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "create": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"create\":{\"_type\":\"post\",\"title\":\"Hello\"}}]}"
+          }
+        }
+      ]
+    },
+    "create_options": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?dryRun=true&returnIds=true&visibility=async&autoGenerateArrayKeys=true",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"create\":{\"_type\":\"post\",\"title\":\"Hi\"}}]}"
+          }
+        }
+      ]
+    },
+    "create_if_not_exists": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"createIfNotExists\":{\"_id\":\"doc-1\",\"_type\":\"post\",\"title\":\"A\"}}]}"
+          }
+        }
+      ]
+    },
+    "create_or_replace": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"createOrReplace\":{\"_id\":\"doc-1\",\"_type\":\"post\",\"title\":\"B\"}}]}"
+          }
+        }
+      ]
+    },
+    "create_or_replace_tag": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?tag=import&returnIds=true&returnDocuments=true&visibility=deferred&skipCrossDatasetReferenceValidation=true",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"createOrReplace\":{\"_id\":\"doc-1\",\"_type\":\"post\"}}]}"
+          }
+        }
+      ]
+    },
+    "delete_id": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"delete\":{\"id\":\"doc-1\"}}]}"
+          }
+        }
+      ]
+    },
+    "delete_query": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"delete\":{\"query\":\"*[_type == $t]\",\"params\":{\"t\":\"old\"}}}]}"
+          }
+        }
+      ]
+    },
+    "delete_query_no_params": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"delete\":{\"query\":\"*[_type == \\\"old\\\"]\"}}]}"
+          }
+        }
+      ]
+    },
+    "mutate_raw": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"create\":{\"_type\":\"post\",\"title\":\"one\"}},{\"patch\":{\"id\":\"doc-1\",\"set\":{\"title\":\"two\"}}},{\"delete\":{\"id\":\"doc-2\"}}],\"transactionId\":\"my-trx\"}"
+          }
+        }
+      ]
+    },
+    "mutate_return_first": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"delete\":{\"id\":\"doc-2\"}}]}"
+          }
+        }
+      ]
+    },
+    "patch_full": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"set\":{\"title\":\"New\",\"nested.prop\":1,\"other\":true},\"setIfMissing\":{\"tags\":[]},\"unset\":[\"old\",\"nested.gone\"],\"inc\":{\"views\":1,\"likes\":2},\"dec\":{\"stock\":3},\"insert\":{\"after\":\"tags[-1]\",\"items\":[\"x\"]},\"ifRevisionID\":\"rev-9\"}}]}"
+          }
+        }
+      ]
+    },
+    "patch_append": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"insert\":{\"after\":\"tags[-1]\",\"items\":[\"a\",\"b\"]}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_prepend": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"insert\":{\"before\":\"tags[0]\",\"items\":[{\"_key\":\"k1\"}]}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_insert_replace": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"insert\":{\"replace\":\"items[2]\",\"items\":[{\"n\":1}]}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_insert_before": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"insert\":{\"before\":\"items[0]\",\"items\":[\"z\"]}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_splice": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"insert\":{\"replace\":\"items[1:3]\",\"items\":[\"q\"]}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_splice_negative": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"insert\":{\"replace\":\"items[-3:]\",\"items\":[]}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_splice_all": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"insert\":{\"replace\":\"items[0:-1]\",\"items\":[]}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_diff_match_patch": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"diffMatchPatch\":{\"body\":\"@@ -1,3 +1,4 @@\\n-abc\\n+abcd\\n\"}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_query_selection": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"query\":\"*[_type == \\\"post\\\" && views > $n]\",\"params\":{\"n\":10},\"set\":{\"popular\":true}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_ids_selection": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"query\":\"*[_id in $ids]\",\"params\":{\"ids\":[\"a\",\"b\"]},\"unset\":[\"flag\"]}}]}"
+          }
+        }
+      ]
+    },
+    "patch_initial_ops": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=async",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"set\":{\"a\":1,\"b\":2}}}]}"
+          }
+        }
+      ]
+    },
+    "patch_via_mutate": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"inc\":{\"n\":1}}}]}"
+          }
+        }
+      ]
+    },
+    "transaction_full": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"create\":{\"_type\":\"post\",\"title\":\"T\"}},{\"createIfNotExists\":{\"_id\":\"doc-2\",\"_type\":\"post\"}},{\"createOrReplace\":{\"_id\":\"doc-3\",\"_type\":\"post\",\"n\":1}},{\"patch\":{\"id\":\"doc-1\",\"set\":{\"title\":\"x\"},\"inc\":{\"n\":1}}},{\"patch\":{\"id\":\"doc-4\",\"unset\":[\"a\"]}},{\"patch\":{\"id\":\"doc-5\",\"setIfMissing\":{\"b\":[]}}},{\"patch\":{\"query\":\"*[_type == \\\"x\\\"]\",\"set\":{\"y\":1}}},{\"delete\":{\"id\":\"doc-6\"}}]}"
+          }
+        }
+      ]
+    },
+    "transaction_id": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?tag=cleanup&returnIds=true&visibility=async",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"delete\":{\"id\":\"doc-1\"}}],\"transactionId\":\"trx-custom\"}"
+          }
+        }
+      ]
+    },
+    "transaction_return_documents": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync&autoGenerateArrayKeys=true",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"create\":{\"_type\":\"a\"}}]}"
+          }
+        }
+      ]
+    },
+    "transaction_via_mutate": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?dryRun=true&returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"delete\":{\"id\":\"doc-1\"}}]}"
+          }
+        }
+      ]
+    },
+    "action_single": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/actions/production",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"actions\":[{\"actionType\":\"sanity.action.document.publish\",\"draftId\":\"drafts.doc-1\",\"publishedId\":\"doc-1\"}]}"
+          }
+        }
+      ]
+    },
+    "action_many": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/actions/production?tag=actions",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"actions\":[{\"actionType\":\"sanity.action.document.discard\",\"draftId\":\"drafts.doc-1\"},{\"actionType\":\"sanity.action.document.unpublish\",\"draftId\":\"drafts.doc-2\",\"publishedId\":\"doc-2\"}],\"transactionId\":\"act-1\",\"dryRun\":true}"
+          }
+        }
+      ]
+    },
+    "create_false_flags": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?dryRun=false&returnIds=true&returnDocuments=true&visibility=sync&autoGenerateArrayKeys=false&skipCrossDatasetReferenceValidation=false",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"create\":{\"_type\":\"post\"}}]}"
+          }
+        }
+      ]
+    },
+    "patch_two_inserts": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/mutate/production?returnIds=true&returnDocuments=true&visibility=sync",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"mutations\":[{\"patch\":{\"id\":\"doc-1\",\"insert\":{\"after\":\"a[-1]\",\"items\":[2],\"before\":\"b[0]\"}}}]}"
+          }
+        }
+      ]
+    },
+    "query_preview_drafts": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&perspective=previewDrafts",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_result_source_map_false": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "query_long_post_unicode": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?returnQuery=false",
+          "headers": {
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"query\":\"*[_type == \\\"post\\\" && title in $titles]{title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, title, _id} // ø日😀\",\"params\":{\"titles\":[\"ü\",\"x\\ny\",\"quote \\\" and \\\\ backslash\"]}}"
+          }
+        }
+      ]
+    },
+    "get_document_all_versions_false": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1?includeAllVersions=false",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "documents_exists_batched": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-0,doc-1,doc-2,doc-3,doc-4,doc-5,doc-6,doc-7,doc-8,doc-9,doc-10,doc-11,doc-12,doc-13,doc-14,doc-15,doc-16,doc-17,doc-18,doc-19,doc-20,doc-21,doc-22,doc-23,doc-24,doc-25,doc-26,doc-27,doc-28,doc-29,doc-30,doc-31,doc-32,doc-33,doc-34,doc-35,doc-36,doc-37,doc-38,doc-39,doc-40,doc-41,doc-42,doc-43,doc-44,doc-45,doc-46,doc-47,doc-48,doc-49,doc-50,doc-51,doc-52,doc-53,doc-54,doc-55,doc-56,doc-57,doc-58,doc-59,doc-60,doc-61,doc-62,doc-63,doc-64,doc-65,doc-66,doc-67,doc-68,doc-69,doc-70,doc-71,doc-72,doc-73,doc-74,doc-75,doc-76,doc-77,doc-78,doc-79,doc-80,doc-81,doc-82,doc-83,doc-84,doc-85,doc-86,doc-87,doc-88,doc-89,doc-90,doc-91,doc-92,doc-93,doc-94,doc-95,doc-96,doc-97,doc-98,doc-99?excludeContent=true",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        },
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-100,doc-101,doc-102,doc-103,doc-104,doc-105,doc-106,doc-107,doc-108,doc-109,doc-110,doc-111,doc-112,doc-113,doc-114,doc-115,doc-116,doc-117,doc-118,doc-119,doc-120,doc-121,doc-122,doc-123,doc-124,doc-125,doc-126,doc-127,doc-128,doc-129,doc-130,doc-131,doc-132,doc-133,doc-134,doc-135,doc-136,doc-137,doc-138,doc-139,doc-140,doc-141,doc-142,doc-143,doc-144,doc-145,doc-146,doc-147,doc-148,doc-149?excludeContent=true",
+          "headers": {
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "listen_simple": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/listen/production?query=*%5B_type+%3D%3D+%22post%22%5D&includeResult=true",
+          "headers": {
+            "accept": "text/event-stream"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "listen_params_options": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/listen/production?tag=live&query=*%5B_type+%3D%3D+%24type%5D&%24type=%22post%22&includePreviousRevision=true&visibility=query&effectFormat=mendoza",
+          "headers": {
+            "accept": "text/event-stream",
+            "authorization": "Bearer sk-test"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "listen_all_versions": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/listen/production?tag=site.l&query=*&includeResult=true&includeAllVersions=true&enableResume=true",
+          "headers": {
+            "accept": "text/event-stream"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "listen_include_mutations_false": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/listen/production?query=*&includeResult=true&includeMutations=false",
+          "headers": {
+            "accept": "text/event-stream"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "upload_image": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/assets/images/production?filename=pixel.png",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "image/png",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "bytes",
+            "base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+          }
+        }
+      ]
+    },
+    "upload_image_meta": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/assets/images/production?tag=upload&label=lbl&title=A+pixel&description=One+pixel&filename=pixel.png&meta=palette&meta=location&creditLine=Me+%26+you&sourceId=src-1&sourceName=unsplash&sourceUrl=https%3A%2F%2Fexample.test%2Fp%3Fid%3D1",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "image/png",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "bytes",
+            "base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+          }
+        }
+      ]
+    },
+    "upload_image_extract_none": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/assets/images/production?meta=none",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "image/png",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "bytes",
+            "base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+          }
+        }
+      ]
+    },
+    "upload_file": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/assets/files/production?filename=data.csv",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "text/csv",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "bytes",
+            "base64": "aGVsbG8sd29ybGQK"
+          }
+        }
+      ]
+    },
+    "upload_file_no_type": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/assets/files/production",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "bytes",
+            "base64": "cmF3"
+          }
+        }
+      ]
+    },
+    "projects_list": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/projects",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "projects_list_options": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/projects?includeMembers=false&organizationId=org-1",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "projects_get": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/projects/abc123",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "datasets_list": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/datasets",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "request_users_me": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/users/me",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "request_history": {
+      "requests": [
+        {
+          "method": "GET",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/data/history/production/documents/doc-1?revision=rev-1",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.16.0"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    }
+  }
+}

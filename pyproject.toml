@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sanity-client-py"
+version = "0.1.0"
+description = "Typed sync and async Python client for the Sanity Content Lake API, request-compatible with @sanity/client"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Alexandr Khrustalev" }]
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.25,<1",
+    "typing_extensions>=4.7",
+]
+keywords = ["sanity", "sanity.io", "groq", "cms", "headless", "content-lake", "client", "httpx", "async"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=5",
+    "mypy>=1.10",
+]
+
+[project.urls]
+Source = "https://github.com/SanderSaxBuilds/sanity-py"
+"HTTP API reference" = "https://www.sanity.io/docs/http-reference"
+"JS client" = "https://github.com/sanity-io/client"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sanity_client"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "tools/js-capture/*.mjs", "tools/js-capture/package.json", "README.md", "LICENSE", "CHANGELOG.md", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-q -m 'not live'"
+markers = [
+    "live: read-only requests to a public Sanity dataset over the network (run with -m live)",
+]
+
+[tool.mypy]
+strict = true
+python_version = "3.10"
+files = ["src/sanity_client", "tests"]
+
+[tool.coverage.run]
+source = ["sanity_client"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_also = ["if TYPE_CHECKING:", "raise NotImplementedError"]
