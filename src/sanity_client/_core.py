@@ -10,9 +10,10 @@ from __future__ import annotations
 
 import json
 import re
+import traceback
 import warnings
 from dataclasses import dataclass, field
-from typing import Any, Callable, Dict, List, Mapping, Optional, Sequence, Set, Tuple, Union
+from typing import Any, Callable, Dict, List, Literal, Mapping, Optional, Sequence, Set, Tuple, Union, cast
 
 from ._encoding import encode_query_string, encode_uri_component, form_urlencode, js_json_dumps, query_pairs
 from ._types import Visibility
@@ -22,7 +23,7 @@ from .errors import HttpResponseInfo, error_from_response
 from .ids import get_version_from_id, get_version_id, is_draft_id
 from .patch import BasePatch, get_selection
 from .transaction import BaseTransaction, _require_document_id
-from .types import MutationResult
+from .types import DurableCallbackFailure, DurableExecution, InvokeFunctionRequest, MutationResult
 
 __all__ = ["RequestSpec", "SanityApiWarning", "build_request"]
 
@@ -730,6 +731,97 @@ def history_transactions_request(
         "includeIdentifiedDocumentsOnly": include_identified_documents_only,
     }
     return build_request(config, uri, query=query, tag=tag, can_use_cdn=False, expect="ndjson")
+
+
+def _functions_scope(config: ClientConfig, organization_id: Optional[str]) -> Dict[str, str]:
+    organization_id = organization_id or config.organization_id
+    if organization_id:
+        return {"X-Sanity-Scope-Type": "organization", "X-Sanity-Scope-Id": organization_id}
+    if not config.project_id:
+        raise ValueError(
+            "A functions call requires a `projectId` to be set in the client config, or an "
+            "`organizationId` for a stack deployed at organization scope"
+        )
+    return {"X-Sanity-Scope-Type": "project", "X-Sanity-Scope-Id": config.project_id}
+
+
+def functions_invoke_request(
+    config: ClientConfig,
+    function_name: str,
+    request: InvokeFunctionRequest[Any],
+    *,
+    sync: bool,
+) -> RequestSpec:
+    headers = _functions_scope(config, request.get("organization_id"))
+    stack_id = request.get("stack_id") or config.stack_id
+    if not stack_id:
+        raise ValueError(
+            "`functions.invoke()` requires a `stackId`, either in the client config or on the request. "
+            "Function names are only unique within a stack."
+        )
+    uri = f"/functions/{function_name}/invoke?blueprintStackId={stack_id}"
+    if sync:
+        uri += "&sync=true"
+    data = request.get("event", {}).get("data")
+    return build_request(
+        config, uri, method="POST", headers=headers,
+        body={"event": {"data": {} if data is None else data}},
+        timeout=_functions_timeout(request.get("timeout", _DEFAULT)),
+    )
+
+
+def functions_callback_request(
+    config: ClientConfig,
+    callback_id: str,
+    outcome: Literal["success", "failure"],
+    body: object,
+    timeout: Optional[float],
+) -> RequestSpec:
+    uri = f"/functions/durables/callback/{encode_uri_component(callback_id)}/{outcome}"
+    return build_request(
+        config, uri, method="POST", headers={"Content-Type": "application/json"},
+        content=js_json_dumps(body).encode("utf-8"), timeout=_functions_timeout(timeout),
+    )
+
+
+def durable_callback_failure_body(failure: Union[Exception, DurableCallbackFailure, None]) -> Dict[str, object]:
+    if failure is None:
+        return {}
+    if isinstance(failure, Exception):
+        body: Dict[str, object] = {"errorMessage": str(failure)}
+        if failure.__traceback__ is not None:
+            body["stackTrace"] = [frame.rstrip("\n") for frame in traceback.format_tb(failure.__traceback__)]
+        return body
+    wire_keys = {"error_message": "errorMessage", "error_data": "errorData", "stack_trace": "stackTrace"}
+    return {wire_keys[key]: value for key, value in failure.items()}
+
+
+def functions_stop_execution_request(
+    config: ClientConfig,
+    function_id: str,
+    execution_id: str,
+    *,
+    organization_id: Optional[str],
+    timeout: Optional[float],
+) -> RequestSpec:
+    headers = _functions_scope(config, organization_id)
+    uri = f"/functions/durables/{function_id}/executions/{encode_uri_component(execution_id)}/stop"
+    return build_request(config, uri, method="POST", headers=headers, timeout=_functions_timeout(timeout))
+
+
+def _functions_timeout(timeout: Optional[float]) -> Optional[float]:
+    return None if timeout == 0 else timeout
+
+
+def stopped_execution(body: Any) -> DurableExecution:
+    execution = body.get("execution") if isinstance(body, dict) else None
+    if (
+        isinstance(execution, dict)
+        and isinstance(execution.get("executionId"), str)
+        and type(execution.get("stopTimestamp")) in (int, float)
+    ):
+        return cast(DurableExecution, execution)
+    raise ValueError("Expected the stopped execution in the response")
 
 
 def raw_request(

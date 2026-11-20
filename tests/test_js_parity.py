@@ -231,6 +231,36 @@ CASES: Dict[str, Callable[[Factory], Any]] = {
         "file", b"hello,world\n", filename="data.csv", content_type="text/csv"
     ),
     "upload_file_no_type": lambda c: c(token=TOKEN).assets.upload("file", b"raw"),
+    # Functions
+    "functions_invoke_async_config_stack": lambda c: c(
+        token=TOKEN, stack_id="config-stack", use_cdn=True, request_tag_prefix="app"
+    ).functions.invoke("send-email"),
+    "functions_invoke_sync_request_stack": lambda c: c(token=TOKEN, stack_id="config-stack").functions.invoke(
+        "summarize", {"stack_id": "request-stack", "event": {"data": {"id": "doc-1"}}, "timeout": 2.5}, sync=True
+    ),
+    "functions_invoke_org_override": lambda c: c(token=TOKEN, organization_id="config-org").functions.invoke(
+        "index", {"stack_id": "org-stack", "organization_id": "request-org", "event": {"data": False}}, sync=False
+    ),
+    "functions_invoke_org_config": lambda c: c(
+        project_id=None, dataset=None, use_project_hostname=False, organization_id="config-org"
+    ).functions.invoke("index", {"stack_id": "org-stack", "event": {"data": None}}),
+    "functions_callback_success": lambda c: c(token=TOKEN).functions.durables.callback_success(
+        "a/b+=", {"status": "approved"}, timeout=0.5
+    ),
+    "functions_callback_success_omitted": lambda c: c(
+        project_id=None, dataset=None, use_project_hostname=False
+    ).functions.durables.callback_success("a/b+="),
+    "functions_callback_failure": lambda c: c().functions.durables.callback_failure(
+        "a/b+=", {"error_message": "Declined", "error_data": '{"code":42}', "stack_trace": ["at callback"]}
+    ),
+    "functions_callback_failure_omitted": lambda c: c().functions.durables.callback_failure("a/b+="),
+    "functions_callback_failure_error": lambda c: c().functions.durables.callback_failure(
+        "a/b+=", RuntimeError("Declined")
+    ),
+    "functions_stop_execution_project": lambda c: c(token=TOKEN).functions.durables.stop_execution("fn-1", "run/42"),
+    "functions_stop_execution_org": lambda c: c(
+        token=TOKEN, organization_id="config-org"
+    ).functions.durables.stop_execution("fn-1", "run/42", organization_id="request-org", timeout=0),
     # Projects, datasets, raw requests
     "projects_list": lambda c: c(token=TOKEN).projects.list(),
     "projects_list_options": lambda c: c(token=TOKEN).projects.list(include_members=False, organization_id="org-1"),
@@ -272,10 +302,14 @@ def _compare(name: str, recorded: List[httpx.Request]) -> None:
 
 
 def test_fixture_file_is_complete() -> None:
-    assert FIXTURES["clientVersion"] == "8.16.0"
+    assert FIXTURES["clientVersion"] == "8.17.0"
     names = set(FIXTURES["cases"])
     assert names == set(CASES) | DIVERGENT
     assert not [n for n, c in FIXTURES["cases"].items() if c.get("error")]
+    for name, case in FIXTURES["cases"].items():
+        expected_agent = None if name.startswith("listen_") else "@sanity/client 8.17.0"
+        for request in case["requests"]:
+            assert request["headers"].get("user-agent") == expected_agent
 
 
 @pytest.mark.parametrize("name", sorted(CASES))

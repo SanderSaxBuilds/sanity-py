@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0 (2026-11-21)
+
+- Added `client.functions.invoke()` to both Python clients, with background and synchronous invocation, and project or organization scope.
+- Added durable callback completion and `stop_execution()`, which returns the execution ID and stop timestamp.
+- Re-recorded the request fixtures with `@sanity/client` 8.17.0, including 11 Functions cases.
+
 ## 0.1.0
 
 First release.

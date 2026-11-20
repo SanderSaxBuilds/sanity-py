@@ -133,6 +133,8 @@ class ClientConfig:
     headers: Mapping[str, str] = field(default_factory=dict)
     timeout: Optional[float] = DEFAULT_TIMEOUT
     result_source_map: Union[bool, str, None] = None
+    stack_id: Optional[str] = None
+    organization_id: Optional[str] = None
     url: str = field(init=False, default="")
     cdn_url: str = field(init=False, default="")
 
@@ -185,6 +187,8 @@ class ClientConfig:
         headers: Optional[Mapping[str, str]] = None,
         timeout: Optional[float] = DEFAULT_TIMEOUT,
         result_source_map: Union[bool, str, None] = None,
+        stack_id: Optional[str] = None,
+        organization_id: Optional[str] = None,
     ) -> "ClientConfig":
         """Build a config, warning when no API version is pinned."""
         if api_version is None:
@@ -210,6 +214,8 @@ class ClientConfig:
             headers=dict(headers or {}),
             timeout=timeout,
             result_source_map=result_source_map,
+            stack_id=stack_id,
+            organization_id=organization_id,
         )
 
     def merge(self, **changes: Any) -> "ClientConfig":
@@ -244,5 +250,7 @@ _CONFIG_FIELDS = frozenset(
         "headers",
         "timeout",
         "result_source_map",
+        "stack_id",
+        "organization_id",
     }
 )

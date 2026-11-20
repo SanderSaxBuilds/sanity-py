@@ -36,6 +36,10 @@ SSE_BODY = (
 
 def default_response_body(url: str) -> Any:
     """The same canned bodies the JS capture script answers with."""
+    if "/functions/durables/" in url and url.endswith("/stop"):
+        return {"execution": {"executionId": "run/42", "stopTimestamp": 1795219200000}}
+    if "/invoke?" in url:
+        return {"processed": True}
     if "/data/query/" in url:
         return {"query": "*", "result": [], "ms": 1}
     if "/data/doc/" in url:
@@ -65,7 +69,12 @@ class Recorder:
             return self.handler(request)
         if "text/event-stream" in request.headers.get("accept", ""):
             return httpx.Response(200, headers={"content-type": "text/event-stream"}, text=SSE_BODY)
-        return httpx.Response(200, json=default_response_body(str(request.url)))
+        url = str(request.url)
+        if "/functions/durables/callback/" in url:
+            return httpx.Response(204)
+        if "/invoke?" in url and request.url.params.get("sync") != "true":
+            return httpx.Response(202)
+        return httpx.Response(200, json=default_response_body(url))
 
     @property
     def last(self) -> httpx.Request:

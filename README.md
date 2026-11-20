@@ -9,7 +9,7 @@ A typed Python client for the [Sanity Content Lake HTTP API](https://www.sanity.
 - Typed errors for every status, GROQ parse errors with a code frame, and retries with backoff.
 - Passes `mypy --strict`.
 
-Every request this client builds is checked byte for byte against the requests `@sanity/client` 8.16.0 sends for the same call: method, URL, query string order, headers and body. See [Tests](#tests).
+Every request this client builds is checked byte for byte against the requests `@sanity/client` 8.17.0 sends for the same call, including the method, URL, query string order, API headers and body. See [Tests](#tests).
 
 Python 3.10 or newer. The only dependencies are `httpx` and `typing_extensions`. The distribution is called `sanity-client-py` and the import is `sanity_client`.
 
@@ -197,6 +197,30 @@ for trx in client.history.transactions(["movie_10681"], limit=20, reverse=True):
 
 `client.request("/any/endpoint", method="POST", body={...})` calls anything else with the same auth, tags, retries and errors.
 
+## Functions
+
+```python
+from os import environ
+
+from sanity_client import SanityClient
+
+with SanityClient(
+    project_id="your-project",
+    stack_id="your-stack",
+    api_version="2026-11-19",
+    token=environ["SANITY_API_TOKEN"],
+) as client:
+    summary = client.functions.invoke(
+        "summarize", {"event": {"data": {"documentId": "post-1"}}, "timeout": 30}, sync=True
+    )
+```
+
+By default, `invoke()` returns `None` when the API accepts the invocation. Set `sync=True` to wait for a supported function's return value. A request's `stack_id` overrides the client setting. A request or client `organization_id` takes precedence over project scope. For an organization-only client, set `use_project_hostname=False`.
+
+Use `callback_failure()` to fail a waiting callback with an exception or a dictionary of failure fields. `stop_execution(function_id, execution_id)` returns the execution with its `executionId` and `stopTimestamp`. Await these same methods on `AsyncSanityClient`.
+
+Functions timeouts are in seconds. Pass `signal` in the invocation request dictionary or as a keyword argument to a durable method. An `asyncio.Event` cancels an async request. The synchronous client checks a `threading.Event` before sending, after each attempt and during retry delays. A blocking socket call runs until it returns or reaches its configured timeout.
+
 ## Async
 
 `AsyncSanityClient` has the same methods. The ones that make requests are coroutines, `patch().commit()` and `transaction().commit()` are awaited, and `listen()` returns an async iterator.
@@ -286,12 +310,11 @@ pytest -m live          # read-only checks against the public zp7mbokg/productio
 mypy
 ```
 
-`tests/fixtures/js_requests.json` holds the requests `@sanity/client` sends for 88 calls, recorded with its `fetch` replaced by a recorder. `tests/test_js_parity.py` makes the same calls with the sync and the async client and compares method, URL, headers and body. To record them again, for example after a JS client release:
+`tests/fixtures/js_requests.json` holds 99 calls recorded with `@sanity/client`'s `fetch` replaced by a recorder. `tests/test_js_parity.py` replays the calls with both Python clients and compares the method, URL, API headers and body. To record them again from the repository root:
 
 ```bash
-cd tools/js-capture
-npm install
-node capture.mjs ../../tests/fixtures/js_requests.json
+npm install --prefix tools/js-capture
+node tools/js-capture/capture.mjs
 ```
 
 ## License

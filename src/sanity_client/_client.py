@@ -7,6 +7,8 @@ import datetime
 import mimetypes
 import os
 import time
+from concurrent.futures import CancelledError
+from threading import Event
 from typing import (
     IO,
     Any,
@@ -28,6 +30,7 @@ import httpx
 
 from . import _core
 from ._core import RequestSpec
+from ._functions import AsyncFunctions, Functions
 from ._listen import AsyncListener, Listener
 from ._types import Document, ListenVisibility, Visibility
 from .config import DEFAULT_API_HOST, DEFAULT_TIMEOUT, ClientConfig, Perspective
@@ -95,6 +98,8 @@ class _BaseClient:
         headers: Optional[Mapping[str, str]],
         timeout: Optional[float],
         result_source_map: Union[bool, str, None],
+        stack_id: Optional[str],
+        organization_id: Optional[str],
     ) -> ClientConfig:
         if config is not None:
             return config
@@ -111,6 +116,8 @@ class _BaseClient:
             headers=headers,
             timeout=timeout,
             result_source_map=result_source_map,
+            stack_id=stack_id,
+            organization_id=organization_id,
         )
 
     @property
@@ -188,6 +195,8 @@ class SanityClient(_BaseClient):
         headers: Optional[Mapping[str, str]] = None,
         timeout: Optional[float] = DEFAULT_TIMEOUT,
         result_source_map: Union[bool, str, None] = None,
+        stack_id: Optional[str] = None,
+        organization_id: Optional[str] = None,
         retry: Optional[RetryPolicy] = None,
         http_client: Optional[httpx.Client] = None,
         transport: Optional[httpx.BaseTransport] = None,
@@ -207,6 +216,8 @@ class SanityClient(_BaseClient):
             headers=headers,
             timeout=timeout,
             result_source_map=result_source_map,
+            stack_id=stack_id,
+            organization_id=organization_id,
         )
         self._retry = retry or RetryPolicy()
         self._owns_http = http_client is None
@@ -217,6 +228,7 @@ class SanityClient(_BaseClient):
         self.datasets = Datasets(self)
         self.users = Users(self)
         self.history = History(self)
+        self.functions = Functions(self)
 
     # -- lifecycle ----------------------------------------------------------
 
@@ -247,9 +259,10 @@ class SanityClient(_BaseClient):
 
     # -- transport ----------------------------------------------------------
 
-    def _send(self, spec: RequestSpec) -> httpx.Response:
+    def _send(self, spec: RequestSpec, *, signal: Optional[Event] = None) -> httpx.Response:
         attempt = 0
         while True:
+            self._check_cancelled(signal)
             try:
                 response = self._http.request(
                     spec.method,
@@ -259,23 +272,36 @@ class SanityClient(_BaseClient):
                     timeout=spec.timeout,
                 )
             except httpx.TransportError as exc:
+                self._check_cancelled(signal)
                 if self._retry.should_retry_error(spec.method, spec.uri, attempt):
-                    self._sleep(self._retry.backoff(attempt))
+                    self._wait_to_retry(self._retry.backoff(attempt), signal)
                     attempt += 1
                     continue
                 raise self._error_for(exc, spec) from exc
+            self._check_cancelled(signal)
             status = response.status_code
             if status >= 400 and self._retry.should_retry_status(spec.method, spec.uri, status, attempt):
                 delay = self._retry.delay_for(attempt, response.headers, status)
                 if delay is not None:
                     response.close()
-                    self._sleep(delay)
+                    self._wait_to_retry(delay, signal)
                     attempt += 1
                     continue
             return response
 
-    def _execute(self, spec: RequestSpec) -> Any:
-        response = self._send(spec)
+    @staticmethod
+    def _check_cancelled(signal: Optional[Event]) -> None:
+        if signal is not None and signal.is_set():
+            raise CancelledError("Sanity Functions request cancelled")
+
+    def _wait_to_retry(self, delay: float, signal: Optional[Event]) -> None:
+        if signal is None:
+            self._sleep(delay)
+        else:
+            signal.wait(delay)
+
+    def _execute(self, spec: RequestSpec, *, signal: Optional[Event] = None) -> Any:
+        response = self._send(spec, signal=signal)
         return _core.check_response(
             spec, response.status_code, response.reason_phrase, response.headers, response.content
         )
@@ -786,6 +812,8 @@ class AsyncSanityClient(_BaseClient):
         headers: Optional[Mapping[str, str]] = None,
         timeout: Optional[float] = DEFAULT_TIMEOUT,
         result_source_map: Union[bool, str, None] = None,
+        stack_id: Optional[str] = None,
+        organization_id: Optional[str] = None,
         retry: Optional[RetryPolicy] = None,
         http_client: Optional[httpx.AsyncClient] = None,
         transport: Optional[httpx.AsyncBaseTransport] = None,
@@ -805,6 +833,8 @@ class AsyncSanityClient(_BaseClient):
             headers=headers,
             timeout=timeout,
             result_source_map=result_source_map,
+            stack_id=stack_id,
+            organization_id=organization_id,
         )
         self._retry = retry or RetryPolicy()
         self._owns_http = http_client is None
@@ -815,6 +845,7 @@ class AsyncSanityClient(_BaseClient):
         self.datasets = AsyncDatasets(self)
         self.users = AsyncUsers(self)
         self.history = AsyncHistory(self)
+        self.functions = AsyncFunctions(self)
 
     async def aclose(self) -> None:
         """Close the HTTP connection pool, if this client created it."""

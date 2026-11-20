@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Mapping, Optional
+from typing import Any, Dict, Generic, List, Mapping, Optional, TypeVar
 
 from typing_extensions import NotRequired, TypedDict
 
@@ -12,7 +12,11 @@ from ._types import AssetType, Document, IdSelection, ListenVisibility, Mutation
 __all__ = [
     "AssetType",
     "Document",
+    "DurableCallbackFailure",
+    "DurableExecution",
     "IdSelection",
+    "InvokeFunctionEvent",
+    "InvokeFunctionRequest",
     "ListenEvent",
     "ListenVisibility",
     "MutationResult",
@@ -21,6 +25,40 @@ __all__ = [
     "RawQueryResponse",
     "Visibility",
 ]
+
+
+class InvokeFunctionEvent(TypedDict, total=False):
+    """Payload the deployed function receives as `event.data`."""
+
+    data: object
+
+
+_Signal = TypeVar("_Signal")
+
+
+class InvokeFunctionRequest(TypedDict, Generic[_Signal], total=False):
+    """Overrides for an invocation, with timeout in seconds."""
+
+    event: InvokeFunctionEvent
+    stack_id: str
+    organization_id: str
+    timeout: Optional[float]
+    signal: _Signal
+
+
+class DurableCallbackFailure(TypedDict, total=False):
+    """Failure reported to a function waiting for a callback."""
+
+    error_message: str
+    error_data: str
+    stack_trace: List[str]
+
+
+class DurableExecution(TypedDict):
+    """A stopped execution as returned by the API."""
+
+    executionId: str
+    stopTimestamp: float
 
 
 class RawQueryResponse(TypedDict):

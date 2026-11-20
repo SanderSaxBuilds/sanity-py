@@ -2,10 +2,11 @@
 // calls, with fetch replaced by a recorder. The Python test suite replays the
 // same calls and checks that method, URL, headers and body match byte for byte.
 //
-//   cd tools/js-capture && npm install && node capture.mjs ../../tests/fixtures/js_requests.json
+//   npm install --prefix tools/js-capture && node tools/js-capture/capture.mjs
 
 import {writeFileSync} from 'node:fs'
 import {createRequire} from 'node:module'
+import {fileURLToPath} from 'node:url'
 
 import {createClient} from '@sanity/client'
 
@@ -24,6 +25,10 @@ const mutateResponse = {
 }
 
 function responseFor(url) {
+  if (url.includes('/functions/durables/') && url.includes('/stop')) {
+    return {execution: {executionId: 'run/42', stopTimestamp: 1795219200000}}
+  }
+  if (url.includes('/invoke?')) return {processed: true}
   if (url.includes('/data/query/')) return {query: '*', result: [], ms: 1}
   if (url.includes('/data/doc/')) return {documents: [{_id: 'doc-1', _type: 'post'}], omitted: []}
   if (url.includes('/data/mutate/')) return mutateResponse
@@ -79,6 +84,8 @@ async function recorderFetch(input, init = {}) {
   if (accept.includes('text/event-stream')) {
     return new Response(SSE_BODY, {status: 200, headers: {'content-type': 'text/event-stream'}})
   }
+  if (url.includes('/functions/durables/callback/')) return new Response(null, {status: 204})
+  if (url.includes('/invoke?') && !url.includes('&sync=true')) return new Response(null, {status: 202})
   return new Response(JSON.stringify(responseFor(url)), {
     status: 200,
     headers: {'content-type': 'application/json'},
@@ -354,6 +361,44 @@ const cases = {
     }),
   upload_file_no_type: () => client({token: 'sk-test'}).assets.upload('file', Buffer.from('raw')),
 
+  // Functions
+  functions_invoke_async_config_stack: () =>
+    client({token: 'sk-test', stackId: 'config-stack', useCdn: true, requestTagPrefix: 'app'})
+      .functions.invoke('send-email'),
+  functions_invoke_sync_request_stack: () =>
+    client({token: 'sk-test', stackId: 'config-stack'}).functions.invoke(
+      'summarize', {stackId: 'request-stack', event: {data: {id: 'doc-1'}}, timeout: 2500}, {sync: true},
+    ),
+  functions_invoke_org_override: () =>
+    client({token: 'sk-test', organizationId: 'config-org'}).functions.invoke(
+      'index', {stackId: 'org-stack', organizationId: 'request-org', event: {data: false}}, {sync: false},
+    ),
+  functions_invoke_org_config: () =>
+    client({projectId: undefined, dataset: undefined, useProjectHostname: false, organizationId: 'config-org'})
+      .functions.invoke('index', {stackId: 'org-stack', event: {data: null}}),
+  functions_callback_success: () =>
+    client({token: 'sk-test'}).functions.durables.callbackSuccess('a/b+=', {status: 'approved'}, {timeout: 500}),
+  functions_callback_success_omitted: () =>
+    client({projectId: undefined, dataset: undefined, useProjectHostname: false})
+      .functions.durables.callbackSuccess('a/b+='),
+  functions_callback_failure: () =>
+    client().functions.durables.callbackFailure('a/b+=', {
+      errorMessage: 'Declined', errorData: '{"code":42}', stackTrace: ['at callback'],
+    }),
+  functions_callback_failure_omitted: () =>
+    client().functions.durables.callbackFailure('a/b+='),
+  functions_callback_failure_error: () => {
+    const failure = new Error('Declined')
+    failure.stack = undefined
+    return client().functions.durables.callbackFailure('a/b+=', failure)
+  },
+  functions_stop_execution_project: () =>
+    client({token: 'sk-test'}).functions.durables.stopExecution('fn-1', 'run/42'),
+  functions_stop_execution_org: () =>
+    client({token: 'sk-test', organizationId: 'config-org'}).functions.durables.stopExecution(
+      'fn-1', 'run/42', {organizationId: 'request-org', timeout: 0},
+    ),
+
   // Projects, datasets, raw requests
   projects_list: () => client({token: 'sk-test'}).projects.list(),
   projects_list_options: () =>
@@ -380,8 +425,9 @@ for (const [name, run] of Object.entries(cases)) {
   out.cases[name] = {requests: recorded}
 }
 
-const target = process.argv[2] || 'js_requests.json'
+const target = process.argv[2] || fileURLToPath(new URL('../../tests/fixtures/js_requests.json', import.meta.url))
 writeFileSync(target, JSON.stringify(out, null, 2) + '\n', 'utf8')
 const errors = Object.entries(out.cases).filter(([, c]) => c.error)
 console.log(`client ${clientVersion}: ${Object.keys(out.cases).length} cases, ${errors.length} errors`)
+console.log(`Wrote ${target}`)
 for (const [name, c] of errors) console.log(`  ${name}: ${c.error}`)

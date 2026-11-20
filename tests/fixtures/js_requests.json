@@ -1,5 +1,5 @@
 {
-  "clientVersion": "8.16.0",
+  "clientVersion": "8.17.0",
   "generatedBy": "tools/js-capture/capture.mjs",
   "cases": {
     "query_simple": {
@@ -8,7 +8,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -22,7 +22,7 @@
           "method": "GET",
           "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -36,7 +36,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%24type+%26%26+rating+%3E+%24min+%26%26+featured+%3D%3D+%24flag%5D%5B0...%24limit%5D&%24type=%22post%22&%24min=3.5&%24flag=true&%24limit=10&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -50,7 +50,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_id+in+%24ids+%26%26+category+%3D%3D+%24cat+%26%26+%24none+%3D%3D+null%5D&%24ids=%5B%22a%22%2C%22b.c%22%2C%22drafts.d%22%5D&%24cat=%7B%22_ref%22%3A%22cat-1%22%2C%22nested%22%3A%7B%22deep%22%3A%5B1%2C2.25%2C-3%5D%7D%7D&%24none=null&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -64,7 +64,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5Btitle+match+%24q+%7C%7C+author+%3D%3D+%24name%5D&%24q=%22na%C3%AFve+caf%C3%A9+%7E*%27%28%29%21+%26+%3D+%2B+%2F+%3F+%23%22&%24name=%22S%C3%B8ren+%C3%86r%C3%B8+%E6%97%A5%E6%9C%AC+%F0%9F%98%80%22&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -78,7 +78,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5Ba+%3D%3D+%24a+%26%26+b+%3D%3D+%24b+%26%26+c+%3D%3D+%24c+%26%26+d+%3D%3D+%24d+%26%26+e+%3D%3D+%24e%5D&%24a=1&%24b=-0.5&%24c=1e%2B21&%24d=123456789012&%24e=0.1&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -92,7 +92,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%24type%5D&%24type=%22post%22&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -106,7 +106,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&tag=homepage",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -120,7 +120,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&tag=website.homepage",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -134,7 +134,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&tag=website",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -148,7 +148,7 @@
           "method": "GET",
           "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&perspective=published",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -163,7 +163,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false&perspective=drafts",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -178,7 +178,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&perspective=raw",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -192,7 +192,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&perspective=rSummer%2Cdrafts",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -206,7 +206,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&perspective=drafts",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -221,7 +221,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D&returnQuery=false",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -235,7 +235,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*%5B_type+%3D%3D+%22post%22%5D",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -249,7 +249,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -263,7 +263,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&resultSourceMap=withKeyArraySelector",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -277,7 +277,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&resultSourceMap=true",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -292,7 +292,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?returnQuery=false",
           "headers": {
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -308,7 +308,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?returnQuery=false&perspective=published&tag=big",
           "headers": {
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -323,7 +323,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2021-06-07/data/query/production?query=*&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -337,7 +337,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/vX/data/query/production?query=*&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -351,7 +351,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0",
+            "user-agent": "@sanity/client 8.17.0",
             "x-custom": "yes"
           },
           "body": {
@@ -366,7 +366,7 @@
           "method": "GET",
           "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/query/production?query=*&cacheMode=noStale&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -380,7 +380,7 @@
           "method": "GET",
           "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&lastLiveEventId=live-1",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -394,7 +394,7 @@
           "method": "GET",
           "url": "https://abc123.api.example.test/v2025-02-19/data/query/production?query=*&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -408,7 +408,7 @@
           "method": "GET",
           "url": "https://api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0",
+            "user-agent": "@sanity/client 8.17.0",
             "x-sanity-project-id": "abc123"
           },
           "body": {
@@ -423,7 +423,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -437,7 +437,7 @@
           "method": "GET",
           "url": "https://abc123.apicdn.sanity.io/v2025-02-19/data/doc/production/doc-1",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -451,7 +451,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/drafts.doc-1?tag=doc.read",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -465,7 +465,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1?includeAllVersions=true",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -479,7 +479,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/versions.rSummer.doc-1",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -493,7 +493,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1,doc-2,drafts.doc-3",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -508,7 +508,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/a,b?tag=many",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -522,7 +522,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1,doc%202?excludeContent=true",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -538,7 +538,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -555,7 +555,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -572,7 +572,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -589,7 +589,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -606,7 +606,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -623,7 +623,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -640,7 +640,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -657,7 +657,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -674,7 +674,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -691,7 +691,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -708,7 +708,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -725,7 +725,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -742,7 +742,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -759,7 +759,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -776,7 +776,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -793,7 +793,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -810,7 +810,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -827,7 +827,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -844,7 +844,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -861,7 +861,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -878,7 +878,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -895,7 +895,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -912,7 +912,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -929,7 +929,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -946,7 +946,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -963,7 +963,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -980,7 +980,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -997,7 +997,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -1014,7 +1014,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -1031,7 +1031,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -1048,7 +1048,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -1063,7 +1063,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false&perspective=previewDrafts",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1077,7 +1077,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?query=*&returnQuery=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1092,7 +1092,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/query/production?returnQuery=false",
           "headers": {
             "content-type": "application/json",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "text",
@@ -1107,7 +1107,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-1?includeAllVersions=false",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1121,7 +1121,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-0,doc-1,doc-2,doc-3,doc-4,doc-5,doc-6,doc-7,doc-8,doc-9,doc-10,doc-11,doc-12,doc-13,doc-14,doc-15,doc-16,doc-17,doc-18,doc-19,doc-20,doc-21,doc-22,doc-23,doc-24,doc-25,doc-26,doc-27,doc-28,doc-29,doc-30,doc-31,doc-32,doc-33,doc-34,doc-35,doc-36,doc-37,doc-38,doc-39,doc-40,doc-41,doc-42,doc-43,doc-44,doc-45,doc-46,doc-47,doc-48,doc-49,doc-50,doc-51,doc-52,doc-53,doc-54,doc-55,doc-56,doc-57,doc-58,doc-59,doc-60,doc-61,doc-62,doc-63,doc-64,doc-65,doc-66,doc-67,doc-68,doc-69,doc-70,doc-71,doc-72,doc-73,doc-74,doc-75,doc-76,doc-77,doc-78,doc-79,doc-80,doc-81,doc-82,doc-83,doc-84,doc-85,doc-86,doc-87,doc-88,doc-89,doc-90,doc-91,doc-92,doc-93,doc-94,doc-95,doc-96,doc-97,doc-98,doc-99?excludeContent=true",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1131,7 +1131,7 @@
           "method": "GET",
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/doc/production/doc-100,doc-101,doc-102,doc-103,doc-104,doc-105,doc-106,doc-107,doc-108,doc-109,doc-110,doc-111,doc-112,doc-113,doc-114,doc-115,doc-116,doc-117,doc-118,doc-119,doc-120,doc-121,doc-122,doc-123,doc-124,doc-125,doc-126,doc-127,doc-128,doc-129,doc-130,doc-131,doc-132,doc-133,doc-134,doc-135,doc-136,doc-137,doc-138,doc-139,doc-140,doc-141,doc-142,doc-143,doc-144,doc-145,doc-146,doc-147,doc-148,doc-149?excludeContent=true",
           "headers": {
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1204,7 +1204,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "image/png",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "bytes",
@@ -1221,7 +1221,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "image/png",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "bytes",
@@ -1238,7 +1238,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "image/png",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "bytes",
@@ -1255,7 +1255,7 @@
           "headers": {
             "authorization": "Bearer sk-test",
             "content-type": "text/csv",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "bytes",
@@ -1271,11 +1271,201 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/assets/files/production",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "bytes",
             "base64": "cmF3"
+          }
+        }
+      ]
+    },
+    "functions_invoke_async_config_stack": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/functions/send-email/invoke?blueprintStackId=config-stack&tag=app",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.17.0",
+            "x-sanity-scope-id": "abc123",
+            "x-sanity-scope-type": "project"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"event\":{\"data\":{}}}"
+          }
+        }
+      ]
+    },
+    "functions_invoke_sync_request_stack": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/functions/summarize/invoke?blueprintStackId=request-stack&sync=true",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.17.0",
+            "x-sanity-scope-id": "abc123",
+            "x-sanity-scope-type": "project"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"event\":{\"data\":{\"id\":\"doc-1\"}}}"
+          }
+        }
+      ]
+    },
+    "functions_invoke_org_override": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/functions/index/invoke?blueprintStackId=org-stack",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.17.0",
+            "x-sanity-scope-id": "request-org",
+            "x-sanity-scope-type": "organization"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"event\":{\"data\":false}}"
+          }
+        }
+      ]
+    },
+    "functions_invoke_org_config": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://api.sanity.io/v2025-02-19/functions/index/invoke?blueprintStackId=org-stack",
+          "headers": {
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.17.0",
+            "x-sanity-scope-id": "config-org",
+            "x-sanity-scope-type": "organization"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"event\":{\"data\":{}}}"
+          }
+        }
+      ]
+    },
+    "functions_callback_success": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/functions/durables/callback/a%2Fb%2B%3D/success",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.17.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"status\":\"approved\"}"
+          }
+        }
+      ]
+    },
+    "functions_callback_success_omitted": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://api.sanity.io/v2025-02-19/functions/durables/callback/a%2Fb%2B%3D/success",
+          "headers": {
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.17.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "null"
+          }
+        }
+      ]
+    },
+    "functions_callback_failure": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/functions/durables/callback/a%2Fb%2B%3D/failure",
+          "headers": {
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.17.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"errorMessage\":\"Declined\",\"errorData\":\"{\\\"code\\\":42}\",\"stackTrace\":[\"at callback\"]}"
+          }
+        }
+      ]
+    },
+    "functions_callback_failure_omitted": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/functions/durables/callback/a%2Fb%2B%3D/failure",
+          "headers": {
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.17.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{}"
+          }
+        }
+      ]
+    },
+    "functions_callback_failure_error": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/functions/durables/callback/a%2Fb%2B%3D/failure",
+          "headers": {
+            "content-type": "application/json",
+            "user-agent": "@sanity/client 8.17.0"
+          },
+          "body": {
+            "kind": "text",
+            "text": "{\"errorMessage\":\"Declined\"}"
+          }
+        }
+      ]
+    },
+    "functions_stop_execution_project": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/functions/durables/fn-1/executions/run%2F42/stop",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.17.0",
+            "x-sanity-scope-id": "abc123",
+            "x-sanity-scope-type": "project"
+          },
+          "body": {
+            "kind": "none"
+          }
+        }
+      ]
+    },
+    "functions_stop_execution_org": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://abc123.api.sanity.io/v2025-02-19/functions/durables/fn-1/executions/run%2F42/stop",
+          "headers": {
+            "authorization": "Bearer sk-test",
+            "user-agent": "@sanity/client 8.17.0",
+            "x-sanity-scope-id": "request-org",
+            "x-sanity-scope-type": "organization"
+          },
+          "body": {
+            "kind": "none"
           }
         }
       ]
@@ -1287,7 +1477,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/projects",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1302,7 +1492,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/projects?includeMembers=false&organizationId=org-1",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1317,7 +1507,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/projects/abc123",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1332,7 +1522,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/datasets",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1347,7 +1537,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/users/me",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"
@@ -1362,7 +1552,7 @@
           "url": "https://abc123.api.sanity.io/v2025-02-19/data/history/production/documents/doc-1?revision=rev-1",
           "headers": {
             "authorization": "Bearer sk-test",
-            "user-agent": "@sanity/client 8.16.0"
+            "user-agent": "@sanity/client 8.17.0"
           },
           "body": {
             "kind": "none"

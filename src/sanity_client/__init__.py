@@ -49,7 +49,15 @@ from .ids import (
 from .patch import AsyncPatch, Patch
 from .retry import RetryPolicy
 from .transaction import AsyncTransaction, Transaction
-from .types import ListenEvent, MutationResult, RawQueryResponse
+from .types import (
+    DurableCallbackFailure,
+    DurableExecution,
+    InvokeFunctionEvent,
+    InvokeFunctionRequest,
+    ListenEvent,
+    MutationResult,
+    RawQueryResponse,
+)
 
 __all__ = [
     "AsyncListener",
@@ -63,7 +71,11 @@ __all__ = [
     "ConflictError",
     "ConnectionFailedError",
     "DisconnectError",
+    "DurableCallbackFailure",
+    "DurableExecution",
     "HttpError",
+    "InvokeFunctionEvent",
+    "InvokeFunctionRequest",
     "ListenError",
     "ListenEvent",
     "Listener",
